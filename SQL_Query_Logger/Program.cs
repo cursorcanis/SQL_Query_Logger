@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SQL_Query_Logger.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<SQL_Query_LoggerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SQL_Query_LoggerContext") ?? throw new InvalidOperationException("Connection string 'SQL_Query_LoggerContext' not found.")));
 
 var app = builder.Build();
 
