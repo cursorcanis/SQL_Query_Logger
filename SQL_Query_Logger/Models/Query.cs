@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SQL_Query_Logger.Models {
-    public class Query {
+namespace SQL_Query_Logger.Models;
+    public class Query 
+    {
 
         public int Id { get; set; }
         [Display(Name = "Title of Query")]
@@ -14,4 +15,4 @@ namespace SQL_Query_Logger.Models {
         public string? Type_of_Query { get; set; }
         //public decimal Price { get; set; }
     }
-}
+

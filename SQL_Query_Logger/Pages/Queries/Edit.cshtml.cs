@@ -71,7 +71,7 @@ namespace SQL_Query_Logger.Pages.Queries
 
         private bool QueryExists(int id)
         {
-          return (_context.Query?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _context.Query.Any(e => e.Id == id);
         }
     }
 }

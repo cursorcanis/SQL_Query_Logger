@@ -34,19 +34,23 @@ namespace SQL_Query_Logger.Pages.Queries
 
         public async Task OnGetAsync()
         {
-            // using System. Linq
-            var queries = from q in _context.Query
-                          select q;
-            if (!string.IsNullOrEmpty(SearchString) ) {
+            // added Linq queries
+            var queries = from m in _context.Query
+                          select m;
+
+            if (!string.IsNullOrEmpty(SearchString) ) 
+            {
                 queries = queries.Where(s => s.Title_of_Query.Contains(SearchString));
             }
 
             Query = await queries.ToListAsync();
 
-            if (_context.Query != null)
-            {
-                Query = await _context.Query.ToListAsync();
-            }
+
+
+            //if (_context.Query != null)
+            //{
+            //    Query = await _context.Query.ToListAsync();
+           // }
         }
     }
 }
